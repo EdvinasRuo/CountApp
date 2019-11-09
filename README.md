@@ -1,4 +1,4 @@
-##Count app 
+## CountApp 
 A React-native app built in order to count personal finances. 
 
 
