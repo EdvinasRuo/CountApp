@@ -7,4 +7,4 @@ In order to run locally:
 
 1. npm install 
 2. expo start / npm start 
-3. Run on emulator or your device.  
+3. Run on emulator or scan QR code your device(Expo mobile app required).  
