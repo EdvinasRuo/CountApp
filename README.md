@@ -2,7 +2,7 @@
 A React-native app built in order to count personal finances. 
 
 
-## Installation  
+## Setup
 In order to run locally: 
 
 1. npm install 
