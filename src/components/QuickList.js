@@ -78,7 +78,7 @@ const quickList = ({ favoriteTypes, addExpense, deleteFavoriteType }) => {
                     <Text style={styles.listItem}>{renderItem.item.name}</Text>
                     <Input
                       value={cost[renderItem.index]}
-                      onChangeText={text => setValue(text, item.index)}
+                      onChangeText={text => setValue(text, renderItem.index)}
                       autoCorrect={false}
                       placeholder='Enter cost'
                       containerStyle={styles.listItem}
@@ -87,7 +87,7 @@ const quickList = ({ favoriteTypes, addExpense, deleteFavoriteType }) => {
                       style={styles.listItem}
                       title='Add'
                       onPress={() =>
-                        saveRecord(renderItem.item.name, cost[item.index])
+                        saveRecord(renderItem.item.name, cost[renderItem.index])
                       }
                     />
                   </View>
