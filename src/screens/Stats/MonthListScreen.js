@@ -1,11 +1,11 @@
 import React from 'react'
 import { StyleSheet, FlatList, View, TouchableOpacity } from 'react-native'
 import { Text } from 'react-native-elements'
-import Spacer from '../../components/spacer'
-import sortCostsByName from '../../methods/sortCostsByName'
-import countMonthsTotal from '../../methods/countTotal'
+import Spacer from '../../components/Spacer'
+import sortCostsByName from '../../helpers/sortCostsByName'
+import countMonthsTotal from '../../helpers/countTotal'
 import Chart from '../../components/Chart'
-import findBudget from '../../methods/findBudgetperName'
+import findBudget from '../../helpers/findBudgetperName'
 
 const StatsDetailScreen = ({ navigation }) => {
   const monthsBudget = navigation.state.params.allBudget

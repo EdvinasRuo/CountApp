@@ -1,12 +1,14 @@
 import React from 'react'
 import { StyleSheet, TouchableOpacity, View, ScrollView } from 'react-native'
 import { Text } from 'react-native-elements'
-import Spacer from '../components/spacer'
 import { AntDesign } from '@expo/vector-icons'
-import QuickList from '../components/quickList'
-import ListExpsenses from '../components/listMonthsExpenses'
 import { connect } from 'react-redux'
 import moment from 'moment'
+import NumberFormat from 'react-number-format'
+import Spacer from '../components/Spacer'
+import QuickList from '../components/QuickList'
+import ListExpsenses from '../components/ListMonthsExpenses'
+import formatNumber from '../helpers/formatNumber'
 
 // Redux
 const mapStateToProps = state => {
@@ -72,7 +74,9 @@ const homeScreen = ({ navigation, monthsExpenses, fixedExpenses }) => {
         {thisMonthsArray.length > 0 ? (
           <View style={styles.monthsContainer}>
             <ListExpsenses array={thisMonthsArray} />
-            <Text style={styles.monthsSubTotal}>Total cost: {totalCost}</Text>
+            <Text style={styles.monthsSubTotal}>
+              Total cost: {formatNumber(totalCost)}
+            </Text>
           </View>
         ) : (
           <Text style={styles.smallInfo}>
@@ -86,7 +90,7 @@ const homeScreen = ({ navigation, monthsExpenses, fixedExpenses }) => {
           <View style={styles.fixedCostContainer}>
             <ListExpsenses array={thisMonthsFixed} />
             <Text style={styles.monthsSubTotal}>
-              Total Fixed cost: {totalFixed}
+              Total Fixed cost: {formatNumber(totalFixed)}
             </Text>
           </View>
         ) : (
@@ -98,7 +102,7 @@ const homeScreen = ({ navigation, monthsExpenses, fixedExpenses }) => {
       </Spacer>
       <View style={styles.totalSumContainer}>
         <Text style={styles.totalSum}>
-          Total this month: {totalCost + totalFixed}
+          Total this month: {formatNumber(totalCost + totalFixed)}
         </Text>
       </View>
     </ScrollView>

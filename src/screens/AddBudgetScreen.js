@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import { StyleSheet, TouchableOpacity } from 'react-native'
+import { StyleSheet } from 'react-native'
 import { Text, Button, Input } from 'react-native-elements'
-import Spacer from '../components/spacer'
-import validateNumbers from '../helpers/validateNumbers'
 import { connect } from 'react-redux'
 import { addToBudget } from '../redux/app-redux'
+import Spacer from '../components/Spacer'
+import validateNumbers from '../helpers/validateNumbers'
 
 // Redux
 const mapDispatchToProps = dispatch => {

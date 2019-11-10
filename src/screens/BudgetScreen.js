@@ -1,10 +1,10 @@
 import React from 'react'
 import { StyleSheet, TouchableOpacity, FlatList, View } from 'react-native'
 import { Text } from 'react-native-elements'
-import Spacer from '../components/spacer'
 import { AntDesign } from '@expo/vector-icons'
 import { connect } from 'react-redux'
 import { deleteFromBudget } from '../redux/app-redux'
+import Spacer from '../components/Spacer'
 
 // Redux
 const mapStateToProps = state => {
@@ -34,12 +34,12 @@ const budgetScreen = ({ navigation, deleteFromBudget, budget }) => {
           <FlatList
             data={budget}
             keyExtractor={item => item.id}
-            renderItem={item => {
+            renderItem={renderItem => {
               return (
                 <View>
                   <View style={styles.listContainer}>
                     <TouchableOpacity
-                      onPress={() => deleteFromBudget(item.item.id)}
+                      onPress={() => deleteFromBudget(renderItem.item.id)}
                     >
                       <AntDesign
                         name='delete'
@@ -47,11 +47,11 @@ const budgetScreen = ({ navigation, deleteFromBudget, budget }) => {
                         style={styles.delIcon}
                       />
                     </TouchableOpacity>
-                    <Text style={styles.listItem}>{item.item.name}</Text>
-                    <Text style={styles.listItem}>{item.item.cost}</Text>
+                    <Text style={styles.listItem}>{renderItem.item.name}</Text>
+                    <Text style={styles.listItem}>{renderItem.item.cost}</Text>
                   </View>
                   <Text style={styles.infoField}>Activated since:</Text>
-                  <Text style={styles.infoField}>{item.item.date}</Text>
+                  <Text style={styles.infoField}>{renderItem.item.date}</Text>
                 </View>
               )
             }}

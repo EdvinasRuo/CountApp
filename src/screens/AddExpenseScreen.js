@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
-import { StyleSheet, TouchableOpacity, View } from 'react-native'
-import { Text, Button, Input } from 'react-native-elements'
-import Spacer from '../components/spacer'
-import AddCosts from '../components/addCostForm'
+import { StyleSheet } from 'react-native'
+import { Text } from 'react-native-elements'
 import { connect } from 'react-redux'
-import checkNumbers from '../helpers/validateNumbers'
 import {
   setFavoriteTypes,
   setSearchTypes,
   addExpense
 } from '../redux/app-redux'
+import Spacer from '../components/Spacer'
+import AddCosts from '../components/AddCostForm'
+import checkNumbers from '../helpers/validateNumbers'
 
 // Redux
 const mapStateToProps = state => {

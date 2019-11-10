@@ -1,10 +1,10 @@
 import React from 'react'
 import { StyleSheet, FlatList, View, TouchableOpacity } from 'react-native'
 import { Text } from 'react-native-elements'
-import Spacer from '../../components/spacer'
 import { AntDesign } from '@expo/vector-icons'
 import { connect } from 'react-redux'
 import { deleteExpense } from '../../redux/app-redux'
+import Spacer from '../../components/Spacer'
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -29,13 +29,13 @@ const CostDetailScreen = ({ navigation, deleteExpense }) => {
         <FlatList
           data={currentItem.expenses}
           keyExtractor={item => item.id}
-          renderItem={item => {
+          renderItem={renderItem => {
             return (
               <>
                 <View style={styles.listContainer}>
-                  {!item.item.fixed ? (
+                  {!renderItem.item.fixed ? (
                     <TouchableOpacity
-                      onPress={() => deleteVarExpense(item.item.id)}
+                      onPress={() => deleteVarExpense(renderItem.item.id)}
                     >
                       <AntDesign
                         name='delete'
@@ -43,9 +43,11 @@ const CostDetailScreen = ({ navigation, deleteExpense }) => {
                         style={styles.delIcon}
                       />
                     </TouchableOpacity>
-                  ) : null}
-                  <Text style={styles.listItem}>{item.item.date}</Text>
-                  <Text style={styles.listItem}>{item.item.cost}</Text>
+                  ) : (
+                    <AntDesign name='lock' size={20} style={styles.lockIcon} />
+                  )}
+                  <Text style={styles.listItem}>{renderItem.item.date}</Text>
+                  <Text style={styles.listItem}>{renderItem.item.cost}</Text>
                 </View>
               </>
             )
@@ -68,6 +70,11 @@ const styles = StyleSheet.create({
   },
   delIcon: {
     color: 'red',
+    padding: 5,
+    paddingTop: 10
+  },
+  lockIcon: {
+    color: 'grey',
     padding: 5,
     paddingTop: 10
   }

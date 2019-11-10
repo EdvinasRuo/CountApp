@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, View, Dimensions, Text } from 'react-native'
 import { PieChart } from 'react-native-chart-kit'
-import Spacer from '../components/spacer'
+import Spacer from './Spacer'
 
 const chart = ({ data }) => {
   const chartConfig = {

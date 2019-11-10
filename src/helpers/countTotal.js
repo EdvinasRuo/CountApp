@@ -1,3 +1,5 @@
+import formatNumber from '../helpers/formatNumber'
+
 const countTotal = monthsExpenses => {
   let totalSum = 0
 
@@ -5,7 +7,7 @@ const countTotal = monthsExpenses => {
     totalSum += parseFloat(expense.cost)
   })
 
-  return totalSum
+  return formatNumber(totalSum)
 }
 
 export default countTotal

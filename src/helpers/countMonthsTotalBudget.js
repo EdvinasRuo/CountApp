@@ -1,3 +1,5 @@
+import formatNumber from '../helpers/formatNumber'
+
 const countTotal = (AllBudget, listedMonth, listedYear) => {
   let totalSum = 0
   AllBudget.map(item => {
@@ -22,7 +24,7 @@ const countTotal = (AllBudget, listedMonth, listedYear) => {
     }
   })
 
-  return totalSum
+  return formatNumber(totalSum)
 }
 
 export default countTotal

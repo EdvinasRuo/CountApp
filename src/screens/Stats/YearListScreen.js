@@ -1,10 +1,11 @@
 import React from 'react'
 import { StyleSheet } from 'react-native'
-import Spacer from '../../components/spacer'
+import { Text } from 'react-native-elements'
 import { connect } from 'react-redux'
 import { addExpense } from '../../redux/app-redux'
-import sortCosts from '../../methods/sortCostsByMonth'
-import ListExpensesAndBudget from '../../components/listCostsAndBudget'
+import sortCosts from '../../helpers/sortCostsByMonth'
+import ListExpensesAndBudget from '../../components/ListCostsAndBudget'
+import Spacer from '../../components/Spacer'
 
 const mapStateToProps = state => {
   return {
@@ -43,11 +44,17 @@ const StatsScreen = ({
   return (
     <>
       <Spacer>
-        <ListExpensesAndBudget
-          costs={sortedCosts}
-          navigation={navigation}
-          allBudget={allBudget}
-        />
+        {sortedCosts.length <= 0 ? (
+          <Text style={styles.smallInfo}>
+            No items added to expenses or budget yet.
+          </Text>
+        ) : (
+          <ListExpensesAndBudget
+            costs={sortedCosts}
+            navigation={navigation}
+            allBudget={allBudget}
+          />
+        )}
       </Spacer>
     </>
   )
@@ -57,7 +64,13 @@ StatsScreen.navigationOptions = {
   header: null
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  smallInfo: {
+    paddingTop: 20,
+    fontSize: 13,
+    color: 'grey'
+  }
+})
 
 export default connect(
   mapStateToProps,

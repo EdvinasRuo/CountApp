@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
 import { StyleSheet } from 'react-native'
 import { Text } from 'react-native-elements'
-import Spacer from '../components/spacer'
-import AddCosts from '../components/addCostForm'
 import { connect } from 'react-redux'
-import checkNumbers from '../helpers/validateNumbers'
 import {
   setFavoriteTypes,
   setSearchTypes,
   addExpense,
   addFixedExpense
 } from '../redux/app-redux'
+import checkNumbers from '../helpers/validateNumbers'
+import Spacer from '../components/Spacer'
+import AddCosts from '../components/AddCostForm'
 
 // Redux
 const mapStateToProps = state => {
