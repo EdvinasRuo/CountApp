@@ -4,7 +4,6 @@ import { Text } from 'react-native-elements'
 import { AntDesign } from '@expo/vector-icons'
 import { connect } from 'react-redux'
 import moment from 'moment'
-import NumberFormat from 'react-number-format'
 import Spacer from '../components/Spacer'
 import QuickList from '../components/QuickList'
 import ListExpsenses from '../components/ListMonthsExpenses'
@@ -56,7 +55,7 @@ const homeScreen = ({ navigation, monthsExpenses, fixedExpenses }) => {
   }
 
   return (
-    <ScrollView>
+    <ScrollView keyboardShouldPersistTaps='handled'>
       <Spacer>
         <Text h3 style={styles.title}>
           Add your daily costs here.

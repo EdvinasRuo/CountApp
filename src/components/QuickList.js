@@ -38,15 +38,17 @@ const mapDispatchToProps = dispatch => {
 
 const quickList = ({ favoriteTypes, addExpense, deleteFavoriteType }) => {
   const [cost, setCost] = useState([])
+  const [updArray, setUpdArray] = useState([])
 
   const saveRecord = (name, index) => {
     addExpense(name, index)
+    setUpdArray([])
   }
 
-  setValue = (text, index) => {
+  const setValue = (text, index) => {
     let indexedArray = []
     indexedArray[index] = validate(text)
-    let updArray = Object.assign(cost, indexedArray)
+    setUpdArray(Object.assign(cost, indexedArray))
     setCost(updArray)
   }
 
